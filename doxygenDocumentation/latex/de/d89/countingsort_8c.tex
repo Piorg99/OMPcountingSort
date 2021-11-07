@@ -1,0 +1,101 @@
+\hypertarget{countingsort_8c}{}\doxysection{src/countingsort.c File Reference}
+\label{countingsort_8c}\index{src/countingsort.c@{src/countingsort.c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}countingsort.\+h\char`\"{}}\newline
+Include dependency graph for countingsort.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d3/d7a/countingsort_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{countingsort_8c_a889ec205c635b219999c761b28cc39ba}{omp\+\_\+get\+\_\+thread\+\_\+num}}()~0
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{countingsort_8c_afc9817e5f592589a64fe6269f37669d1}{generate\+Array}} (ELEMENT\+\_\+\+TYPE $\ast$my\+\_\+array, int length, int threads)
+\begin{DoxyCompactList}\small\item\em The function is used to initiaslize with pseudorandomic numbers the array. This is a thread safe version as rand\+\_\+r function is used instead of rand(). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{countingsort_8c_af1bfa2494ced3426a5f03c21956f5e8a}{count\+Sort\+On2}} (ELEMENT\+\_\+\+TYPE $\ast$my\+\_\+array, int length, int threads)
+\begin{DoxyCompactList}\small\item\em The function is used to sort the array my\+\_\+array according to the algorithm counting sort. This function provides an implementation with a time complexity of O(n$^\wedge$2), being so less convenient than another version of this algorithm in the sequencial performances. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{countingsort_8c_a22b7c552260adcf7c83c454f117309c0}{count\+Sort\+On}} (ELEMENT\+\_\+\+TYPE $\ast$my\+\_\+array, ELEMENT\+\_\+\+TYPE $\ast$temp, int length, int threads)
+\begin{DoxyCompactList}\small\item\em This function sorts an array according to the counting sort algorithm using optimized loops with optimized for loop. This function has a time complexity O(n) being in the sequential version more convenien than the previous version. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{countingsort_8c_a889ec205c635b219999c761b28cc39ba}\label{countingsort_8c_a889ec205c635b219999c761b28cc39ba}} 
+\index{countingsort.c@{countingsort.c}!omp\_get\_thread\_num@{omp\_get\_thread\_num}}
+\index{omp\_get\_thread\_num@{omp\_get\_thread\_num}!countingsort.c@{countingsort.c}}
+\doxysubsubsection{\texorpdfstring{omp\_get\_thread\_num}{omp\_get\_thread\_num}}
+{\footnotesize\ttfamily \#define omp\+\_\+get\+\_\+thread\+\_\+num(\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})~0}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{countingsort_8c_a22b7c552260adcf7c83c454f117309c0}\label{countingsort_8c_a22b7c552260adcf7c83c454f117309c0}} 
+\index{countingsort.c@{countingsort.c}!countSortOn@{countSortOn}}
+\index{countSortOn@{countSortOn}!countingsort.c@{countingsort.c}}
+\doxysubsubsection{\texorpdfstring{countSortOn()}{countSortOn()}}
+{\footnotesize\ttfamily void count\+Sort\+On (\begin{DoxyParamCaption}\item[{ELEMENT\+\_\+\+TYPE $\ast$}]{my\+\_\+array,  }\item[{ELEMENT\+\_\+\+TYPE $\ast$}]{temp,  }\item[{int}]{length,  }\item[{int}]{threads }\end{DoxyParamCaption})}
+
+
+
+This function sorts an array according to the counting sort algorithm using optimized loops with optimized for loop. This function has a time complexity O(n) being in the sequential version more convenien than the previous version. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+\_\+array} & a pointer to an array which must be sorted. \\
+\hline
+{\em temp} & the pointer to the array which must be sorted. \\
+\hline
+{\em length} & size of my\+\_\+array. \\
+\hline
+{\em threads} & number of threads. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{countingsort_8c_af1bfa2494ced3426a5f03c21956f5e8a}\label{countingsort_8c_af1bfa2494ced3426a5f03c21956f5e8a}} 
+\index{countingsort.c@{countingsort.c}!countSortOn2@{countSortOn2}}
+\index{countSortOn2@{countSortOn2}!countingsort.c@{countingsort.c}}
+\doxysubsubsection{\texorpdfstring{countSortOn2()}{countSortOn2()}}
+{\footnotesize\ttfamily void count\+Sort\+On2 (\begin{DoxyParamCaption}\item[{ELEMENT\+\_\+\+TYPE $\ast$}]{my\+\_\+array,  }\item[{int}]{length,  }\item[{int}]{threads }\end{DoxyParamCaption})}
+
+
+
+The function is used to sort the array my\+\_\+array according to the algorithm counting sort. This function provides an implementation with a time complexity of O(n$^\wedge$2), being so less convenient than another version of this algorithm in the sequencial performances. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+\_\+array} & the pointer to the array to be sorted. \\
+\hline
+{\em length} & size of my\+\_\+array. \\
+\hline
+{\em threads} & number of threads. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{countingsort_8c_afc9817e5f592589a64fe6269f37669d1}\label{countingsort_8c_afc9817e5f592589a64fe6269f37669d1}} 
+\index{countingsort.c@{countingsort.c}!generateArray@{generateArray}}
+\index{generateArray@{generateArray}!countingsort.c@{countingsort.c}}
+\doxysubsubsection{\texorpdfstring{generateArray()}{generateArray()}}
+{\footnotesize\ttfamily void generate\+Array (\begin{DoxyParamCaption}\item[{ELEMENT\+\_\+\+TYPE $\ast$}]{my\+\_\+array,  }\item[{int}]{length,  }\item[{int}]{threads }\end{DoxyParamCaption})}
+
+
+
+The function is used to initiaslize with pseudorandomic numbers the array. This is a thread safe version as rand\+\_\+r function is used instead of rand(). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em my\+\_\+array} & the pointer to the memory area of the array ~\newline
+ \\
+\hline
+{\em length} & size of my\+\_\+array. \\
+\hline
+{\em threads} & the number of threads. \\
+\hline
+\end{DoxyParams}

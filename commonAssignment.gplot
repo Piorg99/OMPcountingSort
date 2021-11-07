@@ -1,0 +1,64 @@
+
+# Course: High Performance Computing 2021/2022
+# 
+# Lecturer: Francesco Moscato	fmoscato@unisa.it
+#
+# Group:
+# Briglia Maria Rosaria	0622701711	m.briglia1@studenti.unisa.it               
+# Della Monica Pierpaolo	0622701701  p.dellamonica9@studenti.unisa.it 
+# Giannino Pio Roberto		0622701713  p.giannino@studenti.unisa.it
+#
+# This file is part of FirstProjectOMP.
+#
+# FirstProjectOMP is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# Requirements: Parallelize and Evaluate Performances of "COUNTING SORT" Algorithm ,by using OpenMP.
+# 
+# To produce this analysis files produced by previous years group 02 have been used
+#
+# The counting sort function for O(n^2) implementation was taken here:
+# https://github.com/ianliu/programacao-paralela/blob/master/omp-count-sort/main.c
+#
+# The counting sort function for O(n) implementation was taken here:
+# https://en.wikipedia.org/wiki/Counting_sort
+#
+# FirstProjectOMP is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with FirstProjectOMP.  If not, see <http://www.gnu.org/licenses/>.
+#
+
+set terminal wxt size 350,262 enhanced font 'Verdana,10' persist
+
+
+# Line width of the axes
+set border linewidth 1.5
+# Line styles
+set style line 1 linecolor rgb '#0060ad' linetype 1 linewidth 2
+set style line 2 linecolor rgb '#dd181f' linetype 1 linewidth 2
+set style line 3 linecolor rgb '#008000' linetype 1 linewidth 2
+set style line 4 linecolor rgb '#000000' linetype 1 linewidth 2
+set style line 5 lc rgb 'black' pt 5   # square
+
+
+N = 10000
+i(x) = x
+f(x) = (N + N*N + N*N)/ ((N + N*N + N*N)/ x) 
+
+set logscale x
+set logscale y
+set xrange [1:N*10]
+set yrange [1:N*10]
+set ylabel 'Speedup'
+set xlabel 'Processors'
+set title sprintf("N=%d",N)
+set term eps
+set output sprintf("speedup%d.eps",N)
+
+# Plot
+plot f(x) title '(N + N*N + N*N)/ P' with lines linestyle 1, i(x) title 'Ideal' with lines linestyle 4, "<echo '8 4'"   using 1:2:(sprintf("(%.2f, %d)", 8, 4)) with labels point  pt 7 offset char 1,1 notitle
